@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 
 /**
@@ -27,11 +26,9 @@ public class Product implements Serializable {
 
 	private String name;
 
-	private BigDecimal unitprice;
+	private String pic;
 
-	//bi-directional many-to-one association to Lineitem
-	@OneToMany(mappedBy="product")
-	private List<Lineitem> lineitems;
+	private BigDecimal unitprice;
 
 	public Product() {
 	}
@@ -60,34 +57,20 @@ public class Product implements Serializable {
 		this.name = name;
 	}
 
+	public String getPic() {
+		return this.pic;
+	}
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+
 	public BigDecimal getUnitprice() {
 		return this.unitprice;
 	}
 
 	public void setUnitprice(BigDecimal unitprice) {
 		this.unitprice = unitprice;
-	}
-
-	public List<Lineitem> getLineitems() {
-		return this.lineitems;
-	}
-
-	public void setLineitems(List<Lineitem> lineitems) {
-		this.lineitems = lineitems;
-	}
-
-	public Lineitem addLineitem(Lineitem lineitem) {
-		getLineitems().add(lineitem);
-		lineitem.setProduct(this);
-
-		return lineitem;
-	}
-
-	public Lineitem removeLineitem(Lineitem lineitem) {
-		getLineitems().remove(lineitem);
-		lineitem.setProduct(null);
-
-		return lineitem;
 	}
 
 }

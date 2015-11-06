@@ -72,7 +72,7 @@
 		</div>
 	</nav>
 	<div class="jumbotron">
-		<form class="form-inline" action="ShowCart">
+		<form class="form-inline" action="ProductDetail">
 			${message}
 	    </form>
 	</div>

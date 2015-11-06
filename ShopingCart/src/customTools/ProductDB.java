@@ -71,5 +71,21 @@ public class ProductDB {
 		}
 		return  new ArrayList<model.Product>( pList);
 	}
-	 	 
+
+	public static model.Product getProduct(int pid) {
+		model.Product product = null;
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		String qString = "select e from Product e where e.id=" + pid;
+		TypedQuery<model.Product> q = (TypedQuery<model.Product>) em.createQuery(qString, model.Product.class);
+//		TypedQuery<Long> query = em.createQuery("SELECT COUNT(c) FROM DemoCustomer c WHERE c.customerId = 2L", Long.class);
+		try {
+			product = q.getSingleResult();
+		} catch (Exception e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return  product;
+	}	 	 
 }

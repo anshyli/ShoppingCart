@@ -41,16 +41,21 @@ public class ListProducts extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		ArrayList<model.Product> postList = ProductDB.selectAll();
-        String message = "";
+		request.setAttribute("products", postList);
+/*		request.setAttribute("productName", postList.get(0));
+		request.setAttribute("productDesc", postList.get(1));
+		request.setAttribute("productId", postList.get(2));
+       String message = "";
 
-        for (model.Product aPost : postList) {
-	        
+       for (model.Product aPost : postList) {     
 			message = message + "	<div class=\"row\"><br><div class=\"col-md-4\">"+aPost.getName()+"</div>" +
 					"<div class=\"col-md-4\">"+aPost.getDescription()+"</div>" + 
 					"<div class=\"col-md-4\">"+String.valueOf(aPost.getUnitprice())+"</div>" + 					
 					"<div class=\"col-md-4\"><button type=\"submit\" class=\"btn btn-success\">"+aPost.getId()+"</button></div></div>";			
 		}
-        request.setAttribute("message", message);   
- 		getServletContext().getRequestDispatcher("/ListProducts.jsp").forward(request, response);		
-    }
+//        request.setAttribute("message", message);   
+ 		System.out.println(message);	*/
+getServletContext().getRequestDispatcher("/ListProducts.jsp").forward(request, response);		
+// 		getServletContext().getRequestDispatcher("/ProductDetail").forward(request, response);
+        }
 }
