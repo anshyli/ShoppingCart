@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.NoResultException;
+//import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 //import model.*;
 
@@ -59,7 +59,7 @@ public class ProductDB {
 	public static ArrayList<model.Product> selectAll() {
 		List<model.Product> pList = null;
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		EntityTransaction trans = em.getTransaction();
+//		EntityTransaction trans = em.getTransaction();
 		String qString = "select e from Product e";
 		TypedQuery<model.Product> q = (TypedQuery<model.Product>) em.createQuery(qString, model.Product.class);
 		try {
@@ -75,7 +75,7 @@ public class ProductDB {
 	public static model.Product getProduct(int pid) {
 		model.Product product = null;
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		EntityTransaction trans = em.getTransaction();
+//		EntityTransaction trans = em.getTransaction();
 		String qString = "select e from Product e where e.id=" + pid;
 		TypedQuery<model.Product> q = (TypedQuery<model.Product>) em.createQuery(qString, model.Product.class);
 //		TypedQuery<Long> query = em.createQuery("SELECT COUNT(c) FROM DemoCustomer c WHERE c.customerId = 2L", Long.class);

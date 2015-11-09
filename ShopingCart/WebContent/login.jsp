@@ -16,7 +16,7 @@
 <title>Login</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Online Shopping</a>
@@ -30,12 +30,11 @@
       </ul>
     </div>
   </div>
-</nav>
-
+</nav> -->
+<jsp:include page="./menu.jsp"/>
 <div class="container">
   <div class="jumbotron">
     <h1>Online Shopping store</h1>      
-    <p>Would you like to login?</p> 
   </div>
 
 	<form role="form" action = "Login" method = "post">

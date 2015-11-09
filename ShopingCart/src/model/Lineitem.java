@@ -12,17 +12,18 @@ import java.math.BigDecimal;
  * 
  */
 @Entity
-@Table(name="LINEITEM", schema="testuserdb")
+@Table(name="LINEITEM", schema="Nelson")
 @NamedQuery(name="Lineitem.findAll", query="SELECT l FROM Lineitem l")
 public class Lineitem implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	 @Id
-	 @SequenceGenerator( name = "LINEITEM_SEQ1", sequenceName = "LINEITEM_SEQ1", allocationSize = 1, initialValue = 1 )
-	 @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "LINEITEM_SEQ1" )
+	 @SequenceGenerator( name = "LINEITEM_SEQ", sequenceName = "LINEITEM_SEQ", allocationSize = 1, initialValue = 1 )
+	 @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "LINEITEM_SEQ" )
 	private long id;
 
-	private BigDecimal quantity;
+	private int quantity;
+	private BigDecimal total;
 
 	//bi-directional many-to-one association to Product
 	@ManyToOne
@@ -43,12 +44,12 @@ public class Lineitem implements Serializable {
 		this.id = id;
 	}
 
-	public BigDecimal getQuantity() {
+	public int getQuantity() {
 		return this.quantity;
 	}
 
-	public void setQuantity(BigDecimal quantity) {
-		this.quantity = quantity;
+	public void setQuantity(int quanty) {
+		this.quantity = quanty;
 	}
 
 	public Product getProduct() {
@@ -65,6 +66,14 @@ public class Lineitem implements Serializable {
 
 	public void setShopper(Shopper shopper) {
 		this.shopper = shopper;
+	}
+
+	public BigDecimal getTotal() {
+		return total;
+	}
+
+	public void setTotal(BigDecimal total) {
+		this.total = total;
 	}
 
 }

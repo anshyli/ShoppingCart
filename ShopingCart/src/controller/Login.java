@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
      			session.setAttribute("loginname", userid);
  	        	getServletContext().getRequestDispatcher("/ListProducts").forward(request, response);	
      		} else {
-     			// You are not a memeber yet, please register first
+     			// You are not a member yet, please register first
     	        getServletContext().getRequestDispatcher("/signup.html").forward(request, response);					     			
      		}
         } else {
